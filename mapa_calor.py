@@ -59,28 +59,74 @@ mapa = folium.Map(
 )
 
 
-# Dados para o HeatMap
+# Dados para o HeatMap: peso proporcional à temperatura no conjunto
+# (a mais quente = intensidade máxima; valores absolutos em °C ficam visualmente parecidos)
+t_min = df["temperatura"].min()
+t_max = df["temperatura"].max()
+faixa = t_max - t_min
+
 heat_data = []
 
 for _, row in df.iterrows():
 
+    if faixa > 0:
+        rel = (row["temperatura"] - t_min) / faixa
+        # Piso evita sumir pontos mais frios; teto 1.0 na cidade mais quente
+        peso = 0.18 + 0.82 * rel
+    else:
+        peso = 1.0
+
     heat_data.append([
         row["latitude"],
         row["longitude"],
-        row["temperatura"]
+        peso
     ])
 
 
-# Adicionar mapa de calor
-HeatMap(heat_data).add_to(mapa)
+# Adicionar mapa de calor (raio/blur um pouco maiores ajudam a ler o contraste)
+HeatMap(
+    heat_data,
+    radius=30,
+    blur=18,
+    min_opacity=0.35,
+).add_to(mapa)
 
 
-# Adicionar marcadores
+# Área invisível (sem pin) para tooltip ao passar o mouse na região + rótulo com °C
 for _, row in df.iterrows():
 
+    lat, lon = row["latitude"], row["longitude"]
+    cidade = row["cidade"]
+    temp = row["temperatura"]
+    temp_txt = f"{temp:g}°C"
+
+    folium.CircleMarker(
+        location=[lat, lon],
+        radius=58,
+        stroke=False,
+        fill=True,
+        fill_color="#ffffff",
+        fill_opacity=0.012,
+        tooltip=folium.Tooltip(
+            f"<b>{cidade}</b><br>{temp_txt}",
+            sticky=True,
+        ),
+    ).add_to(mapa)
+
     folium.Marker(
-        [row["latitude"], row["longitude"]],
-        popup=f"{row['cidade']} - {row['temperatura']}°C"
+        location=[lat, lon],
+        icon=folium.DivIcon(
+            icon_size=(80, 22),
+            icon_anchor=(40, 11),
+            html=(
+                "<div style=\""
+                "font-size:13px;font-weight:700;color:#fff;"
+                "text-align:center;line-height:22px;width:80px;"
+                "text-shadow:0 0 4px #000,0 0 10px #000;"
+                "pointer-events:none;\">"
+                f"{temp_txt}</div>"
+            ),
+        ),
     ).add_to(mapa)
 
 

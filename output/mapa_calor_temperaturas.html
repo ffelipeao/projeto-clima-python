@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_6438e416399edd812a2f5071dd0dadaa {
+                #map_f51a1a0d6ed6f7c54896393667d75e82 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,14 +55,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_6438e416399edd812a2f5071dd0dadaa" ></div>
+            <div class="folium-map" id="map_f51a1a0d6ed6f7c54896393667d75e82" ></div>
         
 </body>
 <script>
     
     
-            var map_6438e416399edd812a2f5071dd0dadaa = L.map(
-                "map_6438e416399edd812a2f5071dd0dadaa",
+            var map_f51a1a0d6ed6f7c54896393667d75e82 = L.map(
+                "map_f51a1a0d6ed6f7c54896393667d75e82",
                 {
                     center: [-15.0, -55.0],
                     crs: L.CRS.EPSG3857,
@@ -79,7 +79,7 @@
 
         
     
-            var tile_layer_43a272a5aa5562906248b866a63f11e8 = L.tileLayer(
+            var tile_layer_a2a10aac941c367d546644902831bc76 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -96,189 +96,259 @@
             );
         
     
-            tile_layer_43a272a5aa5562906248b866a63f11e8.addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            tile_layer_a2a10aac941c367d546644902831bc76.addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-            var heat_map_786f3c261b123b4b6f24c700b026f790 = L.heatLayer(
-                [[-22.9, -43.17, 21.6], [-23.55, -46.63, 14.4], [-15.79, -47.88, 23.3], [-12.97, -38.5, 25.9], [-3.1, -60.02, 29.1], [-25.42, -49.27, 9.2], [-8.05, -34.88, 25.7]],
+            var heat_map_88e3295dfd01647dde89e6c987b82990 = L.heatLayer(
+                [[-22.9, -43.17, 0.6909547738693467], [-23.55, -46.63, 0.398391959798995], [-15.79, -47.88, 0.7568844221105528], [-12.97, -38.5, 0.8722613065326632], [-3.1, -60.02, 1.0], [-25.42, -49.27, 0.18], [-8.05, -34.88, 0.8640201005025125]],
                 {
-  "minOpacity": 0.5,
+  "minOpacity": 0.35,
   "maxZoom": 18,
-  "radius": 25,
-  "blur": 15,
+  "radius": 30,
+  "blur": 18,
 }
             );
         
     
-            heat_map_786f3c261b123b4b6f24c700b026f790.addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            heat_map_88e3295dfd01647dde89e6c987b82990.addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-            var marker_3e0678ecaa0fc35905b23638c2edcddc = L.marker(
+            var circle_marker_ed4a38346542c99ff0fd6edcc24f4bfc = L.circleMarker(
+                [-22.9, -43.17],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffff", "fillOpacity": 0.012, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 58, "stroke": false, "weight": 3}
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
+        
+    
+            circle_marker_ed4a38346542c99ff0fd6edcc24f4bfc.bindTooltip(
+                `<div>
+                     <b>Rio de Janeiro</b><br>21.5°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_337994538bc4edd7633943f61494020a = L.marker(
                 [-22.9, -43.17],
                 {
 }
-            ).addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-        var popup_f10979888f2180cca478f0e918396ea2 = L.popup({
-  "maxWidth": "100%",
+            var div_icon_5d426eea9720856bebba1897d34f1fe1 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:22px;width:80px;text-shadow:0 0 4px #000,0 0 10px #000;pointer-events:none;\"\u003e21.5\u00b0C\u003c/div\u003e",
+  "iconSize": [80, 22],
+  "iconAnchor": [40, 11],
+  "className": "empty",
 });
-
-        
-            
-                var html_af1587c854af3447410a26d83237f7a5 = $(`<div id="html_af1587c854af3447410a26d83237f7a5" style="width: 100.0%; height: 100.0%;">Rio de Janeiro - 21.6°C</div>`)[0];
-                popup_f10979888f2180cca478f0e918396ea2.setContent(html_af1587c854af3447410a26d83237f7a5);
-            
-        
-
-        marker_3e0678ecaa0fc35905b23638c2edcddc.bindPopup(popup_f10979888f2180cca478f0e918396ea2)
-        ;
-
         
     
+                marker_337994538bc4edd7633943f61494020a.setIcon(div_icon_5d426eea9720856bebba1897d34f1fe1);
+            
     
-            var marker_988027539d4b9f207b1f1ff16433520c = L.marker(
+            var circle_marker_a633058fa5d9266ed4026ba7246f5a46 = L.circleMarker(
+                [-23.55, -46.63],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffff", "fillOpacity": 0.012, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 58, "stroke": false, "weight": 3}
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
+        
+    
+            circle_marker_a633058fa5d9266ed4026ba7246f5a46.bindTooltip(
+                `<div>
+                     <b>São Paulo</b><br>14.4°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_20f4d47dc660d5fd52cf6b38e81e238a = L.marker(
                 [-23.55, -46.63],
                 {
 }
-            ).addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-        var popup_1827f49739a0d4f46bf8d92d68d82c51 = L.popup({
-  "maxWidth": "100%",
+            var div_icon_7d5ef9866ec8870195b66a829776f28b = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:22px;width:80px;text-shadow:0 0 4px #000,0 0 10px #000;pointer-events:none;\"\u003e14.4\u00b0C\u003c/div\u003e",
+  "iconSize": [80, 22],
+  "iconAnchor": [40, 11],
+  "className": "empty",
 });
-
-        
-            
-                var html_9c924397f092dfafacf1c45cc48daec7 = $(`<div id="html_9c924397f092dfafacf1c45cc48daec7" style="width: 100.0%; height: 100.0%;">São Paulo - 14.4°C</div>`)[0];
-                popup_1827f49739a0d4f46bf8d92d68d82c51.setContent(html_9c924397f092dfafacf1c45cc48daec7);
-            
-        
-
-        marker_988027539d4b9f207b1f1ff16433520c.bindPopup(popup_1827f49739a0d4f46bf8d92d68d82c51)
-        ;
-
         
     
+                marker_20f4d47dc660d5fd52cf6b38e81e238a.setIcon(div_icon_7d5ef9866ec8870195b66a829776f28b);
+            
     
-            var marker_f637ec67907081ba7c87596d65ea6382 = L.marker(
+            var circle_marker_61870772810216e15b861cf3c679bfb3 = L.circleMarker(
+                [-15.79, -47.88],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffff", "fillOpacity": 0.012, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 58, "stroke": false, "weight": 3}
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
+        
+    
+            circle_marker_61870772810216e15b861cf3c679bfb3.bindTooltip(
+                `<div>
+                     <b>Brasília</b><br>23.1°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f4b22b51c84cfc1aead9fe92f9f84ca6 = L.marker(
                 [-15.79, -47.88],
                 {
 }
-            ).addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-        var popup_af1e819bf4a8a3ad960e04106a1bc5b5 = L.popup({
-  "maxWidth": "100%",
+            var div_icon_9ff641ce4fde7310d866cb8d7a5a2970 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:22px;width:80px;text-shadow:0 0 4px #000,0 0 10px #000;pointer-events:none;\"\u003e23.1\u00b0C\u003c/div\u003e",
+  "iconSize": [80, 22],
+  "iconAnchor": [40, 11],
+  "className": "empty",
 });
-
-        
-            
-                var html_6988f46ca52baa939c1483692a2dad54 = $(`<div id="html_6988f46ca52baa939c1483692a2dad54" style="width: 100.0%; height: 100.0%;">Brasília - 23.3°C</div>`)[0];
-                popup_af1e819bf4a8a3ad960e04106a1bc5b5.setContent(html_6988f46ca52baa939c1483692a2dad54);
-            
-        
-
-        marker_f637ec67907081ba7c87596d65ea6382.bindPopup(popup_af1e819bf4a8a3ad960e04106a1bc5b5)
-        ;
-
         
     
+                marker_f4b22b51c84cfc1aead9fe92f9f84ca6.setIcon(div_icon_9ff641ce4fde7310d866cb8d7a5a2970);
+            
     
-            var marker_cd56e4c7a4fb1f1f89029f9eaa5495bb = L.marker(
+            var circle_marker_ca3ca8922299259676e9f58eb81538fc = L.circleMarker(
+                [-12.97, -38.5],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffff", "fillOpacity": 0.012, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 58, "stroke": false, "weight": 3}
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
+        
+    
+            circle_marker_ca3ca8922299259676e9f58eb81538fc.bindTooltip(
+                `<div>
+                     <b>Salvador</b><br>25.9°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9b3764cef04603c7cf87ffe1f3cd192c = L.marker(
                 [-12.97, -38.5],
                 {
 }
-            ).addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-        var popup_58b60168bfb5ff1277360c18c1c70ad1 = L.popup({
-  "maxWidth": "100%",
+            var div_icon_a908503ec13de6630b90f993a15c983b = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:22px;width:80px;text-shadow:0 0 4px #000,0 0 10px #000;pointer-events:none;\"\u003e25.9\u00b0C\u003c/div\u003e",
+  "iconSize": [80, 22],
+  "iconAnchor": [40, 11],
+  "className": "empty",
 });
-
-        
-            
-                var html_9ce7719885aaa1d273e9ef8ed834fda1 = $(`<div id="html_9ce7719885aaa1d273e9ef8ed834fda1" style="width: 100.0%; height: 100.0%;">Salvador - 25.9°C</div>`)[0];
-                popup_58b60168bfb5ff1277360c18c1c70ad1.setContent(html_9ce7719885aaa1d273e9ef8ed834fda1);
-            
-        
-
-        marker_cd56e4c7a4fb1f1f89029f9eaa5495bb.bindPopup(popup_58b60168bfb5ff1277360c18c1c70ad1)
-        ;
-
         
     
+                marker_9b3764cef04603c7cf87ffe1f3cd192c.setIcon(div_icon_a908503ec13de6630b90f993a15c983b);
+            
     
-            var marker_8b88a142ec3b803a3627666631e468c8 = L.marker(
+            var circle_marker_ccbc66cd3b5852c01147e54cdb74cfcc = L.circleMarker(
+                [-3.1, -60.02],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffff", "fillOpacity": 0.012, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 58, "stroke": false, "weight": 3}
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
+        
+    
+            circle_marker_ccbc66cd3b5852c01147e54cdb74cfcc.bindTooltip(
+                `<div>
+                     <b>Manaus</b><br>29°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_83bd442ceb007c2ea35fa808a40292a8 = L.marker(
                 [-3.1, -60.02],
                 {
 }
-            ).addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-        var popup_c9d37251f745af617bc9617f6286889a = L.popup({
-  "maxWidth": "100%",
+            var div_icon_ebd74e07d7e773f09bf6f55736d99e06 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:22px;width:80px;text-shadow:0 0 4px #000,0 0 10px #000;pointer-events:none;\"\u003e29\u00b0C\u003c/div\u003e",
+  "iconSize": [80, 22],
+  "iconAnchor": [40, 11],
+  "className": "empty",
 });
-
-        
-            
-                var html_1a122e6650c2b768e44295ba30fac6a1 = $(`<div id="html_1a122e6650c2b768e44295ba30fac6a1" style="width: 100.0%; height: 100.0%;">Manaus - 29.1°C</div>`)[0];
-                popup_c9d37251f745af617bc9617f6286889a.setContent(html_1a122e6650c2b768e44295ba30fac6a1);
-            
-        
-
-        marker_8b88a142ec3b803a3627666631e468c8.bindPopup(popup_c9d37251f745af617bc9617f6286889a)
-        ;
-
         
     
+                marker_83bd442ceb007c2ea35fa808a40292a8.setIcon(div_icon_ebd74e07d7e773f09bf6f55736d99e06);
+            
     
-            var marker_d8e61ec7169bfd96f08948555f0d736c = L.marker(
+            var circle_marker_18d859e616792bd5528d50925241db28 = L.circleMarker(
+                [-25.42, -49.27],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffff", "fillOpacity": 0.012, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 58, "stroke": false, "weight": 3}
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
+        
+    
+            circle_marker_18d859e616792bd5528d50925241db28.bindTooltip(
+                `<div>
+                     <b>Curitiba</b><br>9.1°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_eefe5774e6a17e0dc01eeebc6e8d3f6c = L.marker(
                 [-25.42, -49.27],
                 {
 }
-            ).addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-        var popup_ab043ff7970000f307fec9bb213cc85f = L.popup({
-  "maxWidth": "100%",
+            var div_icon_978f8eb2f7c944a4a1bfd7c7a423f42d = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:22px;width:80px;text-shadow:0 0 4px #000,0 0 10px #000;pointer-events:none;\"\u003e9.1\u00b0C\u003c/div\u003e",
+  "iconSize": [80, 22],
+  "iconAnchor": [40, 11],
+  "className": "empty",
 });
-
-        
-            
-                var html_b4496cd955969396ae1cbec7ceb04d26 = $(`<div id="html_b4496cd955969396ae1cbec7ceb04d26" style="width: 100.0%; height: 100.0%;">Curitiba - 9.2°C</div>`)[0];
-                popup_ab043ff7970000f307fec9bb213cc85f.setContent(html_b4496cd955969396ae1cbec7ceb04d26);
-            
-        
-
-        marker_d8e61ec7169bfd96f08948555f0d736c.bindPopup(popup_ab043ff7970000f307fec9bb213cc85f)
-        ;
-
         
     
+                marker_eefe5774e6a17e0dc01eeebc6e8d3f6c.setIcon(div_icon_978f8eb2f7c944a4a1bfd7c7a423f42d);
+            
     
-            var marker_898fcee6d361c881d8d3e93b6784f100 = L.marker(
+            var circle_marker_c38e337343c8e616a6a0eca3468ff537 = L.circleMarker(
+                [-8.05, -34.88],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffff", "fillOpacity": 0.012, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 58, "stroke": false, "weight": 3}
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
+        
+    
+            circle_marker_c38e337343c8e616a6a0eca3468ff537.bindTooltip(
+                `<div>
+                     <b>Recife</b><br>25.7°C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3770600b2c06f8bf00e064c8db7bfedc = L.marker(
                 [-8.05, -34.88],
                 {
 }
-            ).addTo(map_6438e416399edd812a2f5071dd0dadaa);
+            ).addTo(map_f51a1a0d6ed6f7c54896393667d75e82);
         
     
-        var popup_87c5058194987c4d88e9700217091004 = L.popup({
-  "maxWidth": "100%",
+            var div_icon_1b9acf85506a28f83118be4b245d36f1 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:22px;width:80px;text-shadow:0 0 4px #000,0 0 10px #000;pointer-events:none;\"\u003e25.7\u00b0C\u003c/div\u003e",
+  "iconSize": [80, 22],
+  "iconAnchor": [40, 11],
+  "className": "empty",
 });
-
-        
-            
-                var html_95080d6cb629a559f843a1ffe174cb11 = $(`<div id="html_95080d6cb629a559f843a1ffe174cb11" style="width: 100.0%; height: 100.0%;">Recife - 25.7°C</div>`)[0];
-                popup_87c5058194987c4d88e9700217091004.setContent(html_95080d6cb629a559f843a1ffe174cb11);
-            
-        
-
-        marker_898fcee6d361c881d8d3e93b6784f100.bindPopup(popup_87c5058194987c4d88e9700217091004)
-        ;
-
         
     
+                marker_3770600b2c06f8bf00e064c8db7bfedc.setIcon(div_icon_1b9acf85506a28f83118be4b245d36f1);
+            
 </script>
 </html>

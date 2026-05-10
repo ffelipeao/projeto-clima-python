@@ -128,17 +128,30 @@ mapa = folium.Map(
 
 # ------------------------------------------------------
 # 11. Preparar dados para o mapa de calor
-# Formato esperado:
-# [latitude, longitude, intensidade]
+# Peso proporcional à temperatura no conjunto (a mais quente = intensidade máxima)
+# Formato: [latitude, longitude, peso]
 # ------------------------------------------------------
+
+t_min = df_resultado["temperatura_media_anual"].min()
+t_max = df_resultado["temperatura_media_anual"].max()
+faixa = t_max - t_min
 
 heat_data = []
 
 for _, linha in df_resultado.iterrows():
+
+    temp = linha["temperatura_media_anual"]
+
+    if faixa > 0:
+        rel = (temp - t_min) / faixa
+        peso = 0.18 + 0.82 * rel
+    else:
+        peso = 1.0
+
     heat_data.append([
         linha["latitude"],
         linha["longitude"],
-        linha["temperatura_media_anual"]
+        peso
     ])
 
 
@@ -148,28 +161,51 @@ for _, linha in df_resultado.iterrows():
 
 HeatMap(
     heat_data,
-    radius=35,
-    blur=25,
-    max_zoom=6
+    radius=30,
+    blur=18,
+    min_opacity=0.35,
 ).add_to(mapa)
 
 
 # ------------------------------------------------------
-# 13. Adicionar marcadores com nome e temperatura
+# 13. Tooltip na região + rótulo com °C (sem pin de marcador)
 # ------------------------------------------------------
 
 for _, linha in df_resultado.iterrows():
 
-    texto_popup = (
-        f"<b>{linha['cidade']}</b><br>"
-        f"Temperatura média anual: "
-        f"{linha['temperatura_media_anual']:.2f} °C"
-    )
+    lat = linha["latitude"]
+    lon = linha["longitude"]
+    cidade = linha["cidade"]
+    temp = linha["temperatura_media_anual"]
+    temp_txt = f"{temp:.1f}°C"
+
+    folium.CircleMarker(
+        location=[lat, lon],
+        radius=58,
+        stroke=False,
+        fill=True,
+        fill_color="#ffffff",
+        fill_opacity=0.012,
+        tooltip=folium.Tooltip(
+            f"<b>{cidade}</b><br>{temp_txt}",
+            sticky=True,
+        ),
+    ).add_to(mapa)
 
     folium.Marker(
-        location=[linha["latitude"], linha["longitude"]],
-        popup=texto_popup,
-        tooltip=linha["cidade"]
+        location=[lat, lon],
+        icon=folium.DivIcon(
+            icon_size=(80, 22),
+            icon_anchor=(40, 11),
+            html=(
+                "<div style=\""
+                "font-size:13px;font-weight:700;color:#fff;"
+                "text-align:center;line-height:22px;width:80px;"
+                "text-shadow:0 0 4px #000,0 0 10px #000;"
+                "pointer-events:none;\">"
+                f"{temp_txt}</div>"
+            ),
+        ),
     ).add_to(mapa)
 
 
