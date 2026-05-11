@@ -4,6 +4,16 @@ Projeto pensado para **uso em sala de aula**, com o propósito de **demonstrar p
 
 **Prof.: Felipe Alves**
 
+## Aviso importante
+
+Caso **não seja possível rodar o projeto localmente** no computador pessoal, o desenvolvimento poderá ser feito no ambiente **VDI Cloud da Estácio**:
+
+[https://vdicloud.estacio.br/](https://vdicloud.estacio.br/)
+
+O aluno deve acessar com o **e-mail institucional da Estácio** e escolher a opção **Aluno TI**.
+
+**Atenção:** o ambiente VDI Cloud **pode apagar os arquivos do projeto** quando o aluno **fechar a página** (ou encerrar a sessão). Por isso, **ao final da aula**, o trabalho deve ser enviado para o **GitHub pessoal** do aluno (por exemplo com `git push`), seguindo o [`TUTORIAL_GIT_ALUNOS.md`](TUTORIAL_GIT_ALUNOS.md).
+
 ## Construção do projeto (tutoriais)
 
 Para **montar o projeto atual do zero** e **versionar o trabalho no Git**, siga os tutoriais em Markdown deste repositório — eles são o roteiro oficial da disciplina:
