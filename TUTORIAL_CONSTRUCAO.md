@@ -8,13 +8,15 @@ Em cada seção, a **explicação vem antes** do código correspondente.
 
 ## 0. O que você vai montar
 
-| Artefato | Função |
-|----------|--------|
-| `requirements.txt` | Lista bibliotecas e versões para `pip install`. |
-| Pasta `output/` | Destino de gráficos PNG, CSV e mapas HTML (evita poluir a raiz). |
-| `analise_clima.py` | Previsão horária (7 dias), agregação diária e três gráficos. |
-| `mapa_calor.py` | Temperatura atual em várias cidades + mapa de calor no Brasil. |
-| `mapa_calor_temperatura_anual.py` | Média anual via API de arquivo + CSV + mapa de calor. |
+
+| Artefato                          | Função                                                           |
+| --------------------------------- | ---------------------------------------------------------------- |
+| `requirements.txt`                | Lista bibliotecas e versões para `pip install`.                  |
+| Pasta `output/`                   | Destino de gráficos PNG, CSV e mapas HTML (evita poluir a raiz). |
+| `analise_clima.py`                | Previsão horária (7 dias), agregação diária e três gráficos.     |
+| `mapa_calor.py`                   | Temperatura atual em várias cidades + mapa de calor no Brasil.   |
+| `mapa_calor_temperatura_anual.py` | Média anual via API de arquivo + CSV + mapa de calor.            |
+
 
 Opcional: um `.gitignore` simples (venv, `.env`, `__pycache__`, etc.) para não versionar lixo local.
 
@@ -29,17 +31,22 @@ Crie uma pasta (por exemplo `projeto-clima-python`) e abra nela o terminal.
 Isola as bibliotecas do restante do sistema.
 
 ```bash
-python3 -m venv venv
+python -m venv venv
+
+#No Windows (PowerShell): 
+venv\Scripts\Activate.ps1
+
+#NO LINUX:
 source venv/bin/activate
 ```
 
-No Windows (PowerShell): `venv\Scripts\Activate.ps1`.
+
 
 **Passo 1.3 — Pasta de saída**  
 Os scripts salvam arquivos em `output/`. Crie a pasta uma vez:
 
 ```bash
-mkdir -p output
+mkdir output
 ```
 
 ---
@@ -92,6 +99,7 @@ Fluxo geral: montar a URL da API de **previsão** → `GET` com **requests** →
 ### 3.1 Imports e URL da API
 
 **Explicação**  
+
 - `requests`: HTTP.  
 - `pandas`: tabelas e agregações.  
 - `matplotlib.pyplot`: gráficos.  
@@ -352,6 +360,7 @@ for _, row in df.iterrows():
 ### 4.5 HeatMap e camadas de rótulo / tooltip
 
 **Explicação**  
+
 - `HeatMap(...).add_to(mapa)` adiciona a camada de calor.  
 - `CircleMarker` quase transparente captura hover para tooltip com nome e temperatura.  
 - `Marker` + `DivIcon` desenha o texto em °C sem ser o pin padrão (HTML/CSS inline).
@@ -655,10 +664,12 @@ Confira em `output/`:
 
 ## 8. Referência rápida das APIs
 
-| Objetivo | Base URL | Parâmetros típicos |
-|----------|----------|-------------------|
-| Previsão recente | `https://api.open-meteo.com/v1/forecast` | `latitude`, `longitude`, `hourly=...` ou `current=...`, `forecast_days` |
-| Série histórica / arquivo | `https://archive-api.open-meteo.com/v1/archive` | `start_date`, `end_date`, `daily=...`, `timezone` |
+
+| Objetivo                  | Base URL                                        | Parâmetros típicos                                                      |
+| ------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------- |
+| Previsão recente          | `https://api.open-meteo.com/v1/forecast`        | `latitude`, `longitude`, `hourly=...` ou `current=...`, `forecast_days` |
+| Série histórica / arquivo | `https://archive-api.open-meteo.com/v1/archive` | `start_date`, `end_date`, `daily=...`, `timezone`                       |
+
 
 Documentação oficial: [https://open-meteo.com/en/docs](https://open-meteo.com/en/docs).
 
